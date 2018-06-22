@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        select{
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+	<select name="" id="pro"></select>
+	<select name="" id="city"></select>
+	<select name="" id="area"></select>
+    <script src="js/data.js"></script>
+	<script>
+		var pro = document.getElementById('pro');
+		var city = document.getElementById('city');
+        var area = document.getElementById('area');
+
+        data.forEach(function(v, i){
+            var op = document.createElement('option');
+            op.innerHTML = v.kpName;
+            pro.appendChild(op);
+            v.kpListVOs.forEach(function(g, i){
+                console.log(g);  
+                var cop = document.createElement('option');
+                cop.innerHTML = g.kpName;
+                city.appendChild(cop);
+                g.kpListVOs.forEach(function(f, i){
+                    console.log(f);  
+                    var op = document.createElement('option');
+                    op.innerHTML = f.kpName;
+                    area.appendChild(op);
+                })
+            })
+        })
+	</script>
+</body>
+</html>
